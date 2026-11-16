@@ -161,7 +161,7 @@ The file contained the flag required to complete the exercise.
 | Available shares | 4 |
 | Accessible share | WorkShares |
 | Authentication | No password required |
-| Discovered directory | james.P |
+| Discovered directory | James.P |
 | File retrieval | Successful using `get` |
 
 ### Security Implications
