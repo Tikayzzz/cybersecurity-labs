@@ -126,102 +126,72 @@ ls
 
 The directory contained the flag file.
 
+## 6. File Retrieval
 
-6. File Retrieval
+### 6.1 Downloading the Flag
 
-6.1 Downloading the Flag
+Within the SMB shell, I used the `get` command to download the discovered file to my local machine.
 
-Within the SMB shell, I used the get command to download the discovered file to my local machine.
+**Command:**
 
-Command:
-
+```bash
 get flag.txt
+```
 
 The file was transferred from the remote SMB share to my local working directory.
 
-6.2 Reading the Downloaded File
+### 6.2 Reading the Downloaded File
 
-After leaving the SMB session, I used the Linux cat command to read the downloaded file.
+After leaving the SMB session, I used the Linux `cat` command to read the downloaded file.
 
+```bash
 exit
 cat flag.txt
+```
 
 The file contained the flag required to complete the exercise.
 
-7. Key Findings
+## 7. Key Findings
 
-Finding
+| Finding | Description |
+|---|---|
+| Open port | TCP 445 |
+| Service | microsoft-ds |
+| Protocol | SMB |
+| Available shares | 4 |
+| Accessible share | WorkShares |
+| Authentication | No password required |
+| Discovered directory | james.P |
+| File retrieval | Successful using `get` |
 
-Description
-
-Open port
-
-TCP 445
-
-Service
-
-microsoft-ds
-
-Protocol
-
-SMB
-
-Available shares
-
-4
-
-Accessible share
-
-WorkShares
-
-Authentication
-
-No password required
-
-Discovered directory
-
-james.P
-
-File retrieval
-
-Successful using get
-
-Security Implications
+### Security Implications
 
 Allowing unauthenticated users to access SMB shares can expose sensitive information and files.
 
-In this exercise, the WorkShares share was accessible without a password, and a user was able to retrieve a file from the share.
+In this exercise, the `WorkShares` share was accessible without a password, and a user was able to retrieve a file from the share.
 
 Potential security improvements include:
 
-Restrict anonymous and guest access.
+- Restrict anonymous and guest access.
+- Apply least-privilege permissions to SMB shares.
+- Require appropriate authentication.
+- Monitor access to shared resources.
+- Avoid storing sensitive files in publicly accessible shares.
 
-Apply least-privilege permissions to SMB shares.
-
-Require appropriate authentication.
-
-Monitor access to shared resources.
-
-Avoid storing sensitive files in publicly accessible shares.
-
-8. What I Learned
+## 8. What I Learned
 
 Through this exercise, I gained practical experience with:
 
-Identifying SMB services using Nmap.
+- Identifying SMB services using Nmap.
+- Understanding SMB and TCP port 445.
+- Enumerating network shares using `smbclient`.
+- Understanding the `-N` and `-L` options.
+- Connecting to SMB shares without providing a password.
+- Navigating remote directories.
+- Downloading files using the SMB interactive shell.
 
-Understanding SMB and TCP port 445.
+**Main takeaway:** Enumerating an exposed service is not enough. Understanding its authentication mechanisms and access permissions is essential for identifying potential security weaknesses.
 
-Enumerating network shares using smbclient.
+---
 
-Understanding the -N and -L options.
-
-Connecting to SMB shares without providing a password.
-
-Navigating remote directories.
-
-Downloading files using the SMB interactive shell.
-
-Main takeaway: Enumerating an exposed service is not enough. Understanding its authentication mechanisms and access permissions is essential for identifying potential security weaknesses.
-
-This exercise was performed in an authorized Hack The Box lab environment.
+*This exercise was performed in an authorized Hack The Box lab environment.*
