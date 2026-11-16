@@ -6,7 +6,7 @@
 |---|---|
 | Platform | Hack The Box |
 | Lab | Starting Point – Fawn |
-| Target | [Target IP Address] |
+| Target | 10.129.96.162 |
 | Service | FTP |
 | Port | 21/TCP |
 | FTP Server | vsftpd 3.0.3 |
